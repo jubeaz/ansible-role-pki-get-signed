@@ -2,12 +2,7 @@
 - include_tasks: variables.yml
   when: (inventory_hostname in groups[_client_group_name]) or (inventory_hostname == _ca_name)
 
-  
 - include_tasks: asserts.yml
-  when: inventory_hostname in groups[_client_group_name]
-
-- name: Include client_get_signed
-  include_tasks: client_get_signed.yml
   when: inventory_hostname in groups[_client_group_name]
 
 - name: Get back cert in tmp dir
